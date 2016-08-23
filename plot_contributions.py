@@ -45,6 +45,7 @@ def get_user_commenting_info(username):
 def usage():
   """print usage information and exit"""
   print "%s [-u | -user <username>] [-c | -comment <comment_id>]" % sys.argv[0]
+  sys.exit(2)
 
 def main():
   # we have two main arguments: username, or comment_id
