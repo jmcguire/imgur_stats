@@ -1,3 +1,4 @@
+import sys
 import math
 from datetime import datetime
 from imgurpython import ImgurClient
@@ -17,6 +18,10 @@ pages = int(math.floor(comment_count / comments_per_page))
 
 scores = []
 days = []
+
+#comment = client.get_comment(XXX)
+#print "up: %d\ndown: %d" % (comment.ups, comment.downs)
+#sys.exit()
 
 for page in range(0,pages):
     comments = client.get_account_comments(username, 'newest', page)
