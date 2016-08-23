@@ -4,9 +4,11 @@ import sys
 from datetime import datetime
 from imgurpython import ImgurClient
 
-CLIENT_ID = '9d9878ff940099e'
-CLIENT_SECRET = '0f9969a855e56960a988aee44a1ffe6d513e02db'
-CLIENT = ImgurClient(CLIENT_ID, CLIENT_SECRET)
+# the local config file needs to set two variables, CLIENT_ID, and
+# CLIENT_SECRET, both of which can be obtained by registering your application
+# at https://api.imgur.com/oauth2/addclient
+import config
+CLIENT = ImgurClient(config.CLIENT_ID, config.CLIENT_SECRET)
 
 def mean(numbers, precision=2):
   """return mean of a list, a basic function that is bafflingly absent"""
