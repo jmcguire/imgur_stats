@@ -3,6 +3,7 @@ import getopt
 import sys
 from datetime import datetime
 from imgurpython import ImgurClient
+from collections import Counter
 
 # the local config file needs to set two variables, CLIENT_ID, and
 # CLIENT_SECRET, both of which can be obtained by registering your application
@@ -42,6 +43,31 @@ def get_user_commenting_info(username):
   print "earliest: ", days[-1].strftime(date_format)
   print "last: ", days[0].strftime(date_format)
 
+def weekly_plot_of_user(username):
+  """get weekly data about a user's commenting history"""
+  # get all comments
+  # sort them into weekly buckets
+  # produce two plots:
+  # 1) # of comments by week
+  # 2) total score by week
+  comments_per_page = 50
+  comment_count = CLIENT.get_account_comment_count(username)
+  pages = int(math.floor(comment_count / comments_per_page))
+
+  comments_by_week = Counter()
+  points_by_week = Counter()
+
+  for page in range(0,pages):
+    comments = CLIENT.get_account_comments(username, 'newest', page)
+    for comment in comments:
+      week = datetime.fromtimestamp(int(comment.datetime)).strftime('%Y-%W')
+      comments_by_week[week] += 1
+      points_by_week[week] += comment.points
+
+  print "# of weeks: ", len(comments_by_week)
+  print "# of comments by week ", comments_by_week
+  print "points by week ", points_by_week
+
 def usage():
   """print usage information and exit"""
   print "%s [-u | -user <username>] [-c | -comment <comment_id>]" % sys.argv[0]
@@ -59,7 +85,8 @@ def main():
 
   for opt, arg, in opts:
     if opt in ['-u', '--user', '--username']:
-      get_user_commenting_info(arg)
+      #get_user_commenting_info(arg)
+      weekly_plot_of_user(arg)
     elif opt in ['-c', '--comment']:
       get_comment_info(int(arg))
 
