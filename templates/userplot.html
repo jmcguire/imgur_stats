@@ -1,0 +1,12 @@
+$def with (username, script, div)
+
+<link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.1.min.css" type="text/css" />
+<script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.1.min.js"></script>
+
+$:script
+
+<h1>plotting user contributions for $username</h1>
+<p><a href="/">⇐ plot a new user</a></p>
+
+$:div
+

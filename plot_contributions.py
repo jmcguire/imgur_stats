@@ -96,7 +96,7 @@ def weekly_plot_of_user(username):
   p = figure(title='test plot', x_axis_type='datetime', x_axis_label='Month', y_axis_label='Score')
   p.line(x, y, legend='Points per Month', line_width=4)
 
-  show(p)
+  return p
 
 
 def usage():
@@ -118,7 +118,8 @@ def main():
   for opt, arg, in opts:
     if opt in ['-u', '--user', '--username']:
       #get_user_commenting_info(arg)
-      weekly_plot_of_user(arg)
+      p = weekly_plot_of_user(arg)
+      show(p)
     elif opt in ['-c', '--comment']:
       get_comment_info(int(arg))
 
