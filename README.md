@@ -1,19 +1,24 @@
 # Synopsis
 
-Get data and graphs about your imgur accont.
+Get data and graphs about your Imgur accont.
 
-This is a command-lne application, for now. Eventually it'l produce graphs and
-websites and etcetera.
+This is both website and a command line script.
 
 # Example
+
+For a website:
+
+`./website.py`
+
+For the command line:
 
 `./plot_contributions.py -u <username>`
 
 # Installation
 
 When using this, you'll need to create a config file, `config.py`. It should
-containe a couple strings that imgur requires you to give for your application.
-This file is loaded automatically.
+contain a couple strings that imgur requires for your application. This file is
+loaded automatically.
 
     CLIENT_ID = 'FOO'
     CLIENT_SECRET = 'BAR'
