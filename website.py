@@ -1,6 +1,9 @@
 import web
 from bokeh.embed import components
+import effortless_bootstrap_web_form_monkey_patch
 from plot_contributions import weekly_plot_of_user
+
+effortless_bootstrap_web_form_monkey_patch.patch()
 
 render = web.template.render('templates/', base='_base')
 
