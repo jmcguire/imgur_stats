@@ -2,7 +2,7 @@
 
 Get data and graphs about your Imgur accont.
 
-This is both website and a command line script.
+This is both website and a command line script. You can see it in action at http://imgur-user-stats.herokuapp.com .
 
 # Example
 
@@ -35,7 +35,7 @@ https://api.imgur.com/oauth2/addclient
 
 # Author
 
-Justin McGuire <jm@landewdstar.com> <@landedstar.com> http://landedstar.com
+Justin McGuire &mdash; <jm@landedstar.com> &mdash; <a href="https://twitter.com/landedstar">@landedstar.com</a> &mdash; http://landedstar.com
 
 # License
 
